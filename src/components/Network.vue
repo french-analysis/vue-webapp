@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="container is-fluid">
+<div class="container is-fluid" style="padding-right:15%; padding-left:15%;">
   <div class="notification is-primary">
     <button class="delete"></button>
     Yay! You successfully landed on the <strong>Network</strong> page!

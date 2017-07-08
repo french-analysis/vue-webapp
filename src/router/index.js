@@ -20,11 +20,6 @@ export default new Router({
       component: Network
     },
     {
-      path: '/Trends',
-      name: 'Trends',
-      component: Hashtags
-    },
-    {
       path: '/Hashtags',
       name: 'Hashtags',
       component: Hashtags
