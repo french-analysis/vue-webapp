@@ -16,73 +16,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Hashtags',
   data () {
     return {
-      hashtag_counter: [
-        {
-          'hashtag': 'Macron',
-          'count': 7570
-        },
-        {
-          'hashtag': 'CongresVersailles',
-          'count': 4764
-        },
-        {
-          'hashtag': 'SimoneVeil',
-          'count': 3732
-        },
-        {
-          'hashtag': 'NowPlaying',
-          'count': 3108
-        },
-        {
-          'hashtag': 'DPG',
-          'count': 2876
-        },
-        {
-          'hashtag': 'EdouardPhilippe',
-          'count': 1693
-        },
-        {
-          'hashtag': 'DirectAN',
-          'count': 1468
-        },
-        {
-          'hashtag': 'Veil',
-          'count': 1403
-        },
-        {
-          'hashtag': 'Iran',
-          'count': 1360
-        },
-        {
-          'hashtag': 'LREM',
-          'count': 1264
-        },
-        {
-          'hashtag': 'CeuxQuiNeSontRien',
-          'count': 1169
-        },
-        {
-          'hashtag': 'FreeIran',
-          'count': 1129
-        },
-        {
-          'hashtag': 'Ferrand',
-          'count': 914
-        },
-        {
-          'hashtag': 'France',
-          'count': 852
-        },
-        {
-          'hashtag': 'Hollande',
-          'count': 848
-        }
-      ]
+      hashtag_counter: []
     }
+  },
+  created () {
+    axios.get(`http://127.0.0.1:5000/hashtags`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      console.log(response.data)
+      this.hashtag_counter = response.data
+    })
+    .catch(e => {
+      console.log('axios call throws error')
+      this.errors.push(e)
+    })
   }
 }
 </script>
